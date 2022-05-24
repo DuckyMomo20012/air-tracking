@@ -25,6 +25,17 @@
         "video",
         "doc"
       ]
+    },
+    {
+      "login": "Qhope",
+      "name": "Qhope",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68414039?v=4",
+      "profile": "https://github.com/Qhope",
+      "contributions": [
+        "code",
+        "design",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
