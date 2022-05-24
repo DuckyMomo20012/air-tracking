@@ -1,0 +1,16 @@
+Humidity(%):
+	0 - 20: Uncomfortably dry.
+	20 - 60: Normal.
+	60 - 100: Uncomfortably wet.
+Temperature(℃):
+	0 - 20: Temperature is too cold.
+	20 - 35: Normal.
+	35 - 50: Temperature is too hot.
+Dust density (mg/m3):
+	0 - 3: Normal
+	3 - 10: Normal
+	10 - 50: Dust density is too high.
+Air quality:
+	0 - 190: Normal.
+	190 - 300: Normal.
+	300 - 500: Air quality is too poor.

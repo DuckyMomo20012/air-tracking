@@ -1,0 +1,40 @@
+{
+  "devices": [
+    {
+      "id": "1",
+      "air_quality": 61,
+      "dust_density": 10,
+      "humidity": 34,
+      "latitude": 10.8101333,
+      "longitude": 106.9743494,
+      "name": "Place 1",
+      "status": "Normal",
+      "temperature": 25,
+      "working": true
+    },
+    {
+      "id": "2",
+      "air_quality": 45,
+      "dust_density": 2,
+      "humidity": 36,
+      "latitude": 10.7630343,
+      "longitude": 106.97893,
+      "name": "Place 2",
+      "status": "Normal",
+      "temperature": 22,
+      "working": true
+    },
+    {
+      "id": "3",
+      "air_quality": 90,
+      "dust_density": 2,
+      "humidity": 32,
+      "latitude": 10.8490481,
+      "longitude": 106.957273,
+      "name": "Place 3",
+      "status": "Temperature is too hot",
+      "temperature": 40,
+      "working": true
+    }
+  ]
+}
