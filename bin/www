@@ -37,6 +37,16 @@ const settings = {
     THINGSPEAK_READ_KEY: process.env.THINGSPEAK_READ_KEY,
     IFTTT_URL: process.env.IFTTT_URL,
   }, // enables global context
+  adminAuth: {
+    type: 'credentials',
+    users: [
+      {
+        username: process.env.NODERED_USERNAME,
+        password: process.env.NODERED_PASSWORD,
+        permissions: '*',
+      },
+    ],
+  },
 };
 
 // Initialise the runtime with a server and settings
