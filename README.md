@@ -1,6 +1,6 @@
 # Air Tracking
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Atmospheric monitoring system dashboard
@@ -86,6 +86,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/DuckyMomo20012"><img src="https://avatars.githubusercontent.com/u/64480713?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dương Tiến Vinh</b></sub></a><br /><a href="https://github.com/DuckyMomo20012/air-tracking/commits?author=DuckyMomo20012" title="Code">💻</a> <a href="https://github.com/DuckyMomo20012/air-tracking/commits?author=DuckyMomo20012" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Qhope"><img src="https://avatars.githubusercontent.com/u/68414039?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Qhope</b></sub></a><br /><a href="https://github.com/DuckyMomo20012/air-tracking/commits?author=Qhope" title="Code">💻</a> <a href="#design-Qhope" title="Design">🎨</a> <a href="https://github.com/DuckyMomo20012/air-tracking/commits?author=Qhope" title="Documentation">📖</a></td>
   </tr>
 </table>
 
