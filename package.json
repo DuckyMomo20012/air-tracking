@@ -2,8 +2,10 @@
   "name": "air-tracking",
   "version": "0.0.0",
   "private": true,
+  "main": "functions/server.js",
   "scripts": {
     "start": "node ./bin/www",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && netlify-lambda build bin",
     "test": "nodemon ./bin/www",
     "debug": "nodemon --inspect ./bin/www"
   },
@@ -17,7 +19,8 @@
     "morgan": "1.10.0",
     "node-red": "2.2.2",
     "node-red-contrib-web-worldmap": "2.28.1",
-    "node-red-dashboard": "3.1.7"
+    "node-red-dashboard": "3.1.7",
+    "serverless-http": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.18.2",
@@ -31,6 +34,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
+    "netlify-lambda": "^2.0.15",
     "nodemon": "2.0.16",
     "prettier": "2.6.2"
   }
