@@ -9,6 +9,7 @@ require('dotenv').config();
 const debug = require('debug')('air-tracking:server');
 const http = require('http');
 const RED = require('node-red');
+const bcryptjs = require('bcryptjs');
 const createError = require('http-errors');
 const app = require('../app');
 
@@ -42,7 +43,7 @@ const settings = {
     users: [
       {
         username: process.env.NODERED_USERNAME,
-        password: process.env.NODERED_PASSWORD,
+        password: bcryptjs.hashSync(process.env.NODERED_PASSWORD, 8),
         permissions: '*',
       },
     ],

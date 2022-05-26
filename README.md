@@ -49,12 +49,11 @@ NODERED_USERNAME=
 NODERED_PASSWORD=
 ```
 
-> NOTE: To generate password, you can run command in terminal:
-```bash
-node-red admin hash-pw
-```
-`NODERED_USERNAME` and `NODERED_PASSWORD` is **used for default user** (admin).
-You can add another users in file `bin/www`.
+> NOTE: NODERED_PASSWORD no longer requires a hash string, just normal string.
+> E.g: `password`.
+
+- `NODERED_USERNAME` and `NODERED_PASSWORD` is **used for default user** (admin).
+- You can add another users in file `bin/www`.
 
 Read more about customizing user and other ways to generate password: [Securing Node-RED](https://nodered.org/docs/user-guide/runtime/securing-node-red#editor--admin-api-security)
 
