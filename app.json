@@ -13,7 +13,7 @@
     },
     "NODERED_PASSWORD": {
       "description": "Password to login to Node-RED editor",
-      "value": "password"
+      "value": "$2b$08$Q3weTBbl7hw.1wAkFmOW5.LuuS28LovVDu3UEKHkHSFK9aBot7TpK"
     }
   }
 }
