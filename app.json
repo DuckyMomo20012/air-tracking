@@ -1,0 +1,31 @@
+{
+  "name": "Node-RED + ExpressJS",
+  "description": "A Node-RED embedded to ExpressJS",
+  "keywords": ["express", "node-red", "iot"],
+  "logo": "https://nodered.org/about/resources/media/node-red-icon.png",
+  "repository": "https://github.com/DuckyMomo20012/air-tracking",
+  "success_url": "/red",
+  "website": "https://github.com/DuckyMomo20012/air-tracking",
+  "env": {
+    "THINGSPEAK_CHANNEL_ID": {
+      "description": "ThingSpeak channel ID to read data from"
+    },
+    "THINGSPEAK_WRITE_KEY": {
+      "description": "ThingSpeak write key to write data to"
+    },
+    "THINGSPEAK_READ_KEY": {
+      "description": "ThingSpeak read key to read data from"
+    },
+    "IFTTT_URL": {
+      "description": "IFFTT URL to send notification to"
+    },
+    "NODERED_USERNAME": {
+      "description": "Username to login to Node-RED editor",
+      "value": "admin"
+    },
+    "NODERED_PASSWORD": {
+      "description": "Password to login to Node-RED editor",
+      "value": "password"
+    }
+  }
+}

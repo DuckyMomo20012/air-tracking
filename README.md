@@ -5,6 +5,8 @@
 
 Atmospheric monitoring system dashboard
 
+Project idea & description: [Wiki](https://github.com/DuckyMomo20012/air-tracking/wiki)
+
 ## Getting Started
 
 First, install dependencies:
@@ -23,58 +25,154 @@ Run the development server:
 ```bash
 yarn dev
 ```
-## Secure Node-RED editor:
 
-To access Node-RED editor, you have to provide `username` and `password`.
-Create admin user by setting `NODERED_USERNAME` and `NODERED_PASSWORD`.
+## First setup:
+
+- First, create an `.env` file from `.env.example` and edit values.
+
+OR
+
+- You can copy from here:
+
+```text
+# ThingSpeak channel ID to read data from
+THINGSPEAK_CHANNEL_ID=
+# ThingSpeak write key to write data to
+THINGSPEAK_WRITE_KEY=
+# ThingSpeak read key to read data from
+THINGSPEAK_READ_KEY=
+# IFFTT URL to send notification to
+IFTTT_URL=
+# Username to login to Node-RED editor
+NODERED_USERNAME=
+# Password to login to Node-RED editor
+NODERED_PASSWORD=
+```
+
 > NOTE: To generate password, you can run command in terminal:
 ```bash
 node-red admin hash-pw
 ```
+`NODERED_USERNAME` and `NODERED_PASSWORD` is **used for default user** (admin).
 You can add another users in file `bin/www`.
-Read more: [Securing Node-RED](https://nodered.org/docs/user-guide/runtime/securing-node-red#editor--admin-api-security)
+
+Read more about customizing user and other ways to generate password: [Securing Node-RED](https://nodered.org/docs/user-guide/runtime/securing-node-red#editor--admin-api-security)
+
+- Then, you can run server:
+```bash
+yarn dev
+```
+
+> NOTE: You change tweak Node-RED settings in file `bin/www`
 
 ## Access Node-RED editor:
 
-- First, create an `.env` file from `.env.example` and edit values.
-- Run server.
 - Go to `http://127.0.0.1:1880/red/` to view Node-RED editor.
 
+<details>
+<summary>Customizing Node-RED editor route</summary>
+
+```javascript
+// bin/www
+const settings = {
+  httpAdminRoot: '/editor',
+  ...
+};
+```
+
+</details>
+
 > NOTE: Remember to deploy flow before accessing these routes
-- Go to `http://127.0.0.1:1880/api/ui/` to view web UI.
-- Go to `http://127.0.0.1:1880/api/worldmap/` to view world map.
+
+- Go to `http://127.0.0.1:1880/api/ui/` to view web UI (from
+  node-red-dashboard node).
+
+<details>
+<summary>Customizing Node-RED node route</summary>
+
+```javascript
+// bin/www
+const settings = {
+  httpNodeRoot: '/',
+  ...
+};
+```
+
+</details>
+
+- Go to `http://127.0.0.1:1880/api/worldmap/` to view world map (from
+  node-red-contrib-web-worldmap node).
 
 ## Import flow:
 
-- Go to hamburger button on top right.
+- Go to hamburger button on top right of editor.
 - Click `Import` button.
 - Then import file `flows.json` from folder `data`.
 
-## First setup:
+## First setups:
 
-- Second, in Node-RED editor go to each MQTT nodes to edit server URL, topics...
+- In Node-RED editor go to each MQTT nodes to edit server URL, topics...
 - Change web title in `dashboard/site` tab (on the right side panel).
 - Change web main color theme in `dashboard/theme` tab.
 - If you don't have MQTT, you can connect node `MQTT emulator` (in Node-RED editor) to inject
   sample data.
-- OR you can use [MQTT explorer](http://mqtt-explorer.com/) to inject sample data.
-- You can see sample data in folder `data`.
-- You change tweak Node-RED settings in file `bin/www`
+
+  ![MQTT emulator node](https://user-images.githubusercontent.com/64480713/170508485-fbb7128b-c0d4-4ebf-97a5-1fbfb8151d4e.png)
+
+OR
+- You can use [MQTT explorer](http://mqtt-explorer.com/) to inject sample
+  data.
+
+  ![MQTT explorer example](https://user-images.githubusercontent.com/64480713/170509148-d8d65312-feff-488d-a076-c61dd0fb3b0b.png)
+
+  *Example image from MQTT explorer website*
+
+> NOTE: You can see sample data in folder `data`.
+
 
 ## Deploy flow:
 
 - Click `Deploy` button in Node-RED editor to deploy flow.
 - After deploying, your flow will be saved in `.node-red` folder.
+
 > File `flow.json` in `.node-red` folder will be loaded for next server run. So
 > you can push this `.node-red` folder to your repo to saved your work, instead
 > of import file `flow.json` manually.
 
-## About embedding Node-RED to Express:
+<details>
+<summary>Customizing Node-RED user directory</summary>
 
-This is an adaption from Node-RED example.
+```javascript
+// bin/www
+const settings = {
+  userDir: './.node-red-store', // relative to root folder, default $HOME/.node-red
+  ...
+};
+```
+
+</details>
+
+## Deploy to Heroku:
+
+- User will be created by default:
+
+```
+username: admin
+password: password
+```
+
+But **you can change it while deploying!**. Stay focus 👀.
+
+You can change these defaults in file `app.json`.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+## About project:
+
+This is an adoption from Node-RED official example.
 Read more: [Embedding into an existing app](https://nodered.org/docs/user-guide/runtime/embedding)
 
-You can set Node-RED settings in `bin/www`. Read more: [Configuration](https://nodered.org/docs/user-guide/runtime/configuration)
+Read more about configurations for settings object: [Configuration](https://nodered.org/docs/user-guide/runtime/configuration)
 
 ## Contributors ✨
 
