@@ -114,7 +114,7 @@
   - Air quality.
   - Temperature.
   - Humidity.
-- Show data chart in for specific date.
+- Show the data chart for a specific date.
 - Locate all devices.
 - Show and turn on/off device status.
 - Send device danger warning to mobile.
@@ -131,9 +131,9 @@ To run this project, you will need to add the following environment variables to
 
 `THINGSPEAK_READ_KEY`: ThingSpeak read key to read data from.
 
-`IFTTT_URL`: IFFTT URL to send notification to.
+`IFTTT_URL`: IFFTT URL to send a notification to.
 
-`NODERED_USERNAME`: Username to login to Node-RED editor.
+`NODERED_USERNAME`: Username to log in to Node-RED editor.
 
 `NODERED_PASSWORD`: Password to login to Node-RED editor.
 
@@ -151,8 +151,8 @@ NODERED_PASSWORD=password
 > `NODERED_USERNAME` and `NODERED_PASSWORD` is **used for default user**
 > (admin). You can add another users in file `bin/www`.
 
-Read more about customizing user and other ways to generate password: [Securing
-Node-RED](https://nodered.org/docs/user-guide/runtime/securing-node-red#editor--admin-api-security)
+Read more about customizing users and other ways to generate passwords:
+[Securing Node-RED](https://nodered.org/docs/user-guide/runtime/securing-node-red#editor--admin-api-security)
 
 > NOTE: You change tweak Node-RED settings in file `bin/www`.
 
@@ -236,7 +236,7 @@ To deploy this project on Heroku
 
 ### Access Node-RED editor
 
-- Go to `http://127.0.0.1:1880/red/` to view Node-RED editor.
+- Go to `http://127.0.0.1:1880/red/` to view the Node-RED editor.
 
   <details>
   <summary>Customizing Node-RED editor route</summary>
@@ -274,15 +274,15 @@ To deploy this project on Heroku
 
 ### Import flow
 
-- Go to hamburger button on top right of editor.
-- Click `Import` button.
+- Go to the hamburger button on the top right of the editor.
+- Click the `Import` button.
 - Then import file `flows.json` from folder `data`.
 
 ### Node-RED dashboard first setups
 
-- In Node-RED editor go to each MQTT nodes to edit server URL, topics...
-- Change web title in `dashboard/site` tab (on the right side panel).
-- Change web main color theme in `dashboard/theme` tab.
+- In Node-RED editor go to each MQTT node to edit server URL, topics...
+- Change the web title in the`dashboard/site` tab (on the right-side panel).
+- Change the web main color theme in `dashboard/theme` tab.
 - If you don't have MQTT, you can connect node `MQTT emulator` (in Node-RED
   editor) to inject sample data.
 
@@ -290,7 +290,7 @@ To deploy this project on Heroku
 
   OR:
 
-  You can use [MQTT explorer](http://mqtt-explorer.com/) to inject sample MQTT
+  You can use [MQTT explorer](http://mqtt-explorer.com/) to inject a sample MQTT
   data.
 
   ![MQTT explorer example](https://user-images.githubusercontent.com/64480713/170509148-d8d65312-feff-488d-a076-c61dd0fb3b0b.png)
@@ -302,12 +302,12 @@ To deploy this project on Heroku
 
 ### Deploy flow:
 
-- Click `Deploy` button in Node-RED editor to deploy flow.
-- After deploying, your flow will be saved in `.node-red` folder.
+- Click the `Deploy` button in the Node-RED editor to deploy flow.
+- After deploying, your flow will be saved in the `.node-red` folder.
 
-> File `flow.json` in `.node-red` folder will be loaded for next server run.
-> So you can push this `.node-red` folder to your repo to saved your work,
-> instead of import file `flow.json` manually.
+> File `flow.json` in the `.node-red` folder will be loaded for the next server
+> run. So you can push this `.node-red` folder to your repo to save your work,
+> instead of importing file `flow.json` manually.
 
   <details>
   <summary>Customizing Node-RED user directory</summary>
@@ -346,8 +346,8 @@ userDir: './.node-red-store', // relative to root folder, default $HOME/.node-re
 
 Your MQTT broker service should send data with this schema:
 
-  <details>
-  <summary>JSON Schema</summary>
+<details>
+<summary>JSON Schema</summary>
 
 ```json
 {
@@ -397,7 +397,7 @@ Your MQTT broker service should send data with this schema:
 }
 ```
 
-  </details>
+</details>
 
 <!-- Roadmap -->
 
@@ -443,6 +443,19 @@ Please read the [Code of Conduct](https://github.com/DuckyMomo20012/air-tracking
 
   - Yes, but we will only update UI, docs, or dependencies. New features won't
     be added frequently.
+
+- Can I add Express routes to this project?
+
+  - Yes, you can. This project is adoption from Node-RED official example to
+    embed Node-RED to Express application.
+
+    Read more: [Embedding into an existing app](https://nodered.org/docs/user-guide/runtime/embedding)
+
+- How can I configure my Node-RED application?
+
+  - Go to file `bin/www`, then configure `settings` variable.
+
+    Read more: [Configuration](https://nodered.org/docs/user-guide/runtime/configuration)
 
 <!-- License -->
 
