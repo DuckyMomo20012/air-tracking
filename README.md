@@ -144,7 +144,7 @@ E.g:
 THINGSPEAK_CHANNEL_ID=1461192
 THINGSPEAK_WRITE_KEY=RRFDXXCAA6DSDP84
 THINGSPEAK_READ_KEY=V348J6XADWL2NUB60
-IFTTT_URL=
+IFTTT_URL=https://maker.ifttt.com/trigger/{event}/with/key/crMzTDLXl...
 NODERED_USERNAME=admin
 NODERED_PASSWORD=password
 ```
@@ -283,7 +283,7 @@ To deploy this project on Heroku
 
 - In Node-RED editor go to each MQTT node to edit server URL, topics...
 - Change the web title in the`dashboard/site` tab (on the right-side panel).
-- Change the web main color theme in `dashboard/theme` tab.
+- Change the web main color theme in the `dashboard/theme` tab.
 - If you don't have MQTT, you can connect node `MQTT emulator` (in Node-RED
   editor) to inject sample data.
 
@@ -308,7 +308,7 @@ To deploy this project on Heroku
 
 > File `flow.json` in the `.node-red` folder will be loaded for the next server
 > run. So you can push this `.node-red` folder to your repo to save your work,
-> instead of importing file `flow.json` manually.
+> instead of importing the file `flow.json` manually.
 
 <details>
 <summary>Customizing Node-RED user directory</summary>
@@ -402,7 +402,7 @@ Your MQTT broker service should send data with this schema:
 
 ### Connect IFTTT
 
-Follow [this tutorial](https://morioh.com/p/aa88d6059a8a) to create IFTTT applet and testing.
+Follow [this tutorial](https://morioh.com/p/aa88d6059a8a) to create an IFTTT applet and test.
 
 <details>
 <summary>Webhook service config</summary>
