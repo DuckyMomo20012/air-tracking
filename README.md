@@ -1,37 +1,214 @@
-# Air Tracking
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<div align="center">
 
-Atmospheric monitoring system dashboard
+  <h1>Air Tracking</h1>
 
-Project idea & description: [Wiki](https://github.com/DuckyMomo20012/air-tracking/wiki)
+  <p>
+    Atmospheric monitoring system dashboard
+  </p>
 
-## Getting Started
+<!-- Badges -->
+<p>
 
-First, install dependencies:
+  <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#wave-contributing)
+
+  <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+  <a href="">
+    <img src="https://img.shields.io/github/last-commit/DuckyMomo20012/air-tracking" alt="last update" />
+  </a>
+  <a href="https://github.com/DuckyMomo20012/air-tracking/network/members">
+    <img src="https://img.shields.io/github/forks/DuckyMomo20012/air-tracking" alt="forks" />
+  </a>
+  <a href="https://github.com/DuckyMomo20012/air-tracking/stargazers">
+    <img src="https://img.shields.io/github/stars/DuckyMomo20012/air-tracking" alt="stars" />
+  </a>
+  <a href="https://github.com/DuckyMomo20012/air-tracking/issues/">
+    <img src="https://img.shields.io/github/issues/DuckyMomo20012/air-tracking" alt="open issues" />
+  </a>
+  <a href="https://github.com/DuckyMomo20012/air-tracking/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/DuckyMomo20012/air-tracking.svg" alt="license" />
+  </a>
+</p>
+
+<h4>
+    <a href="https://github.com/DuckyMomo20012/air-tracking/">View Demo</a>
+  <span> · </span>
+    <a href="https://github.com/DuckyMomo20012/air-tracking">Documentation</a>
+  <span> · </span>
+    <a href="https://github.com/DuckyMomo20012/air-tracking/issues/">Report Bug</a>
+  <span> · </span>
+    <a href="https://github.com/DuckyMomo20012/air-tracking/issues/">Request Feature</a>
+  </h4>
+</div>
+
+<br />
+
+<!-- Table of Contents -->
+
+# :notebook_with_decorative_cover: Table of Contents
+
+- [About the Project](#star2-about-the-project)
+  - [Screenshots](#camera-screenshots)
+  - [Tech Stack](#space_invader-tech-stack)
+  - [Features](#dart-features)
+  - [Environment Variables](#key-environment-variables)
+- [Getting Started](#toolbox-getting-started)
+  - [Prerequisites](#bangbang-prerequisites)
+  - [Installation](#gear-installation)
+  - [Run Locally](#running-run-locally)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [Usage](#eyes-usage)
+  - [Access Node-RED editor](#access-node-red-editor)
+  - [Import flow](#import-flow)
+  - [Node-RED dashboard first setups](#node-red-dashboard-first-setups)
+  - [Deploy flow](#deploy-flow)
+  - [Value range](#value-range)
+  - [MQTT JSON Schema](#mqtt-json-schema)
+- [Roadmap](#compass-roadmap)
+- [Contributing](#wave-contributing)
+  - [Code of Conduct](#scroll-code-of-conduct)
+- [FAQ](#grey_question-faq)
+- [License](#warning-license)
+- [Contact](#handshake-contact)
+- [Acknowledgements](#gem-acknowledgements)
+
+<!-- About the Project -->
+
+## :star2: About the Project
+
+<!-- Screenshots -->
+
+### :camera: Screenshots
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/64480713/177510391-5c11aadc-96b7-4c52-8ab9-ce5fed195ad6.png" alt="screenshot" />
+</div>
+
+<!-- TechStack -->
+
+### :space_invader: Tech Stack
+
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://www.javascript.com/">Javascript</a></li>
+    <li><a href="https://nodered.org/">Node-RED</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://expressjs.com/">Express.js</a></li>
+  </ul>
+</details>
+
+<!-- Features -->
+
+### :dart: Features
+
+- Show average measured data:
+  - Dust density.
+  - Air quality.
+  - Temperature.
+  - Humidity.
+- Show data chart in for specific date.
+- Locate all devices.
+- Show and turn on/off device status.
+- Send device danger warning to mobile.
+
+<!-- Env Variables -->
+
+### :key: Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`THINGSPEAK_CHANNEL_ID`: ThingSpeak channel ID to read data from.
+
+`THINGSPEAK_WRITE_KEY`: ThingSpeak write key to write data to.
+
+`THINGSPEAK_READ_KEY`: ThingSpeak read key to read data from.
+
+`IFTTT_URL`: IFFTT URL to send notification to.
+
+`NODERED_USERNAME`: Username to login to Node-RED editor.
+
+`NODERED_PASSWORD`: Password to login to Node-RED editor.
+
+E.g:
+
+```
+THINGSPEAK_CHANNEL_ID=1461192
+THINGSPEAK_WRITE_KEY=RRFDXXCAA6DSDP84
+THINGSPEAK_READ_KEY=V348J6XADWL2NUB60
+IFTTT_URL=
+NODERED_USERNAME=admin
+NODERED_PASSWORD=password
+```
+
+> `NODERED_USERNAME` and `NODERED_PASSWORD` is **used for default user**
+> (admin). You can add another users in file `bin/www`.
+
+Read more about customizing user and other ways to generate password: [Securing
+Node-RED](https://nodered.org/docs/user-guide/runtime/securing-node-red#editor--admin-api-security)
+
+> NOTE: You change tweak Node-RED settings in file `bin/www`.
+
+<!-- Getting Started -->
+
+## :toolbox: Getting Started
+
+<!-- Prerequisites -->
+
+### :bangbang: Prerequisites
+
+- A **MQTT** broker service.
+
+- This project uses Yarn as package manager
+
+  ```bash
+  npm install --global yarn
+  ```
+
+<!-- Installation -->
+
+### :gear: Installation
+
+Install air-tracking with npm
 
 ```bash
-yarn
+yarn install air-tracking
+cd air-tracking
+```
+
+<!-- Run Locally -->
+
+### :running: Run Locally
+
+Clone the project
+
+```bash
+git clone https://github.com/DuckyMomo20012/air-tracking.git
+```
+
+Go to the project directory
+
+```bash
+cd air-tracking
+```
+
+Install dependencies
+
+```bash
+yarn install
 ```
 
 > If you have error: "node" is incompatible... Then add flag:
-> `--ignore-engines`. E.g: `yarn add --ignore-engines PACKAGE_NAME`
+> `--ignore-engines`. E.g: `yarn add --ignore-engines PACKAGE_NAME`.
 
-## Run server:
-
-Run the development server:
-
-```bash
-yarn
-```
-
-> If you have error: "node" is incompatible... Then add flag:
-> `--ignore-engines`. E.g: `yarn add --ignore-engines PACKAGE_NAME`
-
-## Run server:
-
-Run the development server:
+Start the server
 
 ```bash
 yarn start
@@ -45,158 +222,192 @@ Run with `nodemon`:
 yarn test
 ```
 
-> *Nodemon is a utility depended on by over 1.5 million projects, that will
-> monitor for any changes in your source and automatically restart your server.
-> Perfect for development.*
+<!-- Deployment -->
 
-## First setup:
+### :triangular_flag_on_post: Deployment
 
-- First, create an `.env` file from `.env.example` and edit values.
+To deploy this project on Heroku
 
-OR
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-- You can copy from here:
+<!-- Usage -->
 
-```text
-# ThingSpeak channel ID to read data from
-THINGSPEAK_CHANNEL_ID=
-# ThingSpeak write key to write data to
-THINGSPEAK_WRITE_KEY=
-# ThingSpeak read key to read data from
-THINGSPEAK_READ_KEY=
-# IFFTT URL to send notification to
-IFTTT_URL=
-# Username to login to Node-RED editor
-NODERED_USERNAME=
-# Password to login to Node-RED editor
-NODERED_PASSWORD=
-```
+## :eyes: Usage
 
-> NOTE: NODERED_PASSWORD no longer requires a hash string, just normal string.
-> E.g: `password`.
-
-- `NODERED_USERNAME` and `NODERED_PASSWORD` is **used for default user** (admin).
-- You can add another users in file `bin/www`.
-
-Read more about customizing user and other ways to generate password: [Securing Node-RED](https://nodered.org/docs/user-guide/runtime/securing-node-red#editor--admin-api-security)
-
-- Then, you can run server:
-```bash
-yarn dev
-```
-
-> NOTE: You change tweak Node-RED settings in file `bin/www`
-
-## Access Node-RED editor:
+### Access Node-RED editor
 
 - Go to `http://127.0.0.1:1880/red/` to view Node-RED editor.
 
-<details>
-<summary>Customizing Node-RED editor route</summary>
+  <details>
+  <summary>Customizing Node-RED editor route</summary>
 
-```javascript
-// bin/www
-const settings = {
+  ```javascript
+  // bin/www
+  const settings = {
   httpAdminRoot: '/editor',
   ...
-};
-```
+  };
+  ```
 
-</details>
+  </details>
 
-> NOTE: Remember to deploy flow before accessing these routes
+> NOTE: Remember to deploy flow before accessing these routes.
 
 - Go to `http://127.0.0.1:1880/api/ui/` to view web UI (from
   node-red-dashboard node).
 
-<details>
-<summary>Customizing Node-RED node route</summary>
+  <details>
+  <summary>Customizing Node-RED node route</summary>
 
-```javascript
-// bin/www
-const settings = {
+  ```javascript
+  // bin/www
+  const settings = {
   httpNodeRoot: '/',
   ...
-};
-```
+  };
+  ```
 
-</details>
+  </details>
 
 - Go to `http://127.0.0.1:1880/api/worldmap/` to view world map (from
   node-red-contrib-web-worldmap node).
 
-## Import flow:
+### Import flow
 
 - Go to hamburger button on top right of editor.
 - Click `Import` button.
 - Then import file `flows.json` from folder `data`.
 
-## First setups:
+### Node-RED dashboard first setups
 
 - In Node-RED editor go to each MQTT nodes to edit server URL, topics...
 - Change web title in `dashboard/site` tab (on the right side panel).
 - Change web main color theme in `dashboard/theme` tab.
-- If you don't have MQTT, you can connect node `MQTT emulator` (in Node-RED editor) to inject
-  sample data.
+- If you don't have MQTT, you can connect node `MQTT emulator` (in Node-RED
+  editor) to inject sample data.
 
   ![MQTT emulator node](https://user-images.githubusercontent.com/64480713/170508485-fbb7128b-c0d4-4ebf-97a5-1fbfb8151d4e.png)
 
-OR
-- You can use [MQTT explorer](http://mqtt-explorer.com/) to inject sample
+  OR:
+
+  You can use [MQTT explorer](http://mqtt-explorer.com/) to inject sample MQTT
   data.
 
   ![MQTT explorer example](https://user-images.githubusercontent.com/64480713/170509148-d8d65312-feff-488d-a076-c61dd0fb3b0b.png)
 
-  *Example image from MQTT explorer website*
+  _Example image from MQTT explorer website_
 
-> NOTE: You can see sample data in folder `data`.
+  > NOTE: You can see sample MQTT data in folder `data`. File
+  > `dangerous-data.json` and `normal-data.json`.
 
-
-## Deploy flow:
+### Deploy flow:
 
 - Click `Deploy` button in Node-RED editor to deploy flow.
 - After deploying, your flow will be saved in `.node-red` folder.
 
-> File `flow.json` in `.node-red` folder will be loaded for next server run. So
-> you can push this `.node-red` folder to your repo to saved your work, instead
-> of import file `flow.json` manually.
+> File `flow.json` in `.node-red` folder will be loaded for next server run.
+> So you can push this `.node-red` folder to your repo to saved your work,
+> instead of import file `flow.json` manually.
 
-<details>
-<summary>Customizing Node-RED user directory</summary>
+  <details>
+  <summary>Customizing Node-RED user directory</summary>
 
 ```javascript
 // bin/www
 const settings = {
-  userDir: './.node-red-store', // relative to root folder, default $HOME/.node-red
-  ...
+userDir: './.node-red-store', // relative to root folder, default $HOME/.node-red
+...
 };
 ```
 
-</details>
+  </details>
 
-## Deploy to Heroku:
+### Value range:
 
-- User will be created by default:
+- **Humidity(%)**:
+  - 0 - 20: Uncomfortably dry.
+  - 20 - 60: Normal.
+  - 60 - 100: Uncomfortably wet.
+- **Temperature(℃)**:
+  - 0 - 20: Temperature is too cold.
+  - 20 - 35: Normal.
+  - 35 - 50: Temperature is too hot.
+- **Dust density (mg/m3)**:
+  - 0 - 3: Normal
+  - 3 - 10: Normal
+  - 10 - 50: Dust density is too high.
+- **Air quality**:
 
+  - 0 - 190: Normal.
+  - 190 - 300: Normal.
+  - 300 - 500: Air quality is too poor.
+
+### MQTT JSON Schema:
+
+Your MQTT broker service should send data with this schema:
+
+  <details>
+  <summary>JSON Schema</summary>
+
+```json
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "devices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "air_quality": {
+            "type": "number"
+          },
+          "dust_density": {
+            "type": "number"
+          },
+          "humidity": {
+            "type": "number"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "temperature": {
+            "type": "number"
+          },
+          "working": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}
 ```
-username: admin
-password: password
-```
 
-But **you can change it while deploying!**. Stay focus 👀.
+  </details>
 
-You can change these defaults in file `app.json`.
+<!-- Roadmap -->
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+## :compass: Roadmap
 
-## About project:
+- [ ] Update dashboard UI.
 
-This is an adoption from Node-RED official example.
-Read more: [Embedding into an existing app](https://nodered.org/docs/user-guide/runtime/embedding)
+<!-- Contributing -->
 
-Read more about configurations for settings object: [Configuration](https://nodered.org/docs/user-guide/runtime/configuration)
-
-## Contributors ✨
+## :wave: Contributing
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -217,3 +428,45 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+<!-- Code of Conduct -->
+
+### :scroll: Code of Conduct
+
+Please read the [Code of Conduct](https://github.com/DuckyMomo20012/air-tracking/blob/main/CODE_OF_CONDUCT.md)
+
+<!-- FAQ -->
+
+## :grey_question: FAQ
+
+- Question 1
+
+  - Answer 1
+
+- Question 2
+
+  - Answer 2
+
+<!-- License -->
+
+## :warning: License
+
+Distributed under MIT license. See [LICENSE](https://github.com/DuckyMomo20012/air-tracking/blob/main/LICENSE) for more information.
+
+<!-- Contact -->
+
+## :handshake: Contact
+
+Duong Vinh - [@duckymomo20012](https://twitter.com/duckymomo20012) - tienvinh.duong4@gmail.com
+
+Project Link: [https://github.com/DuckyMomo20012/air-tracking](https://github.com/DuckyMomo20012/air-tracking)
+
+<!-- Acknowledgments -->
+
+## :gem: Acknowledgements
+
+Here are useful resources and libraries that we have used in our projects.
+
+- [Node-RED](https://nodered.org/): A powerful tool to build IoT applications.
+- [Awesome Readme Template](https://github.com/Louis3797/awesome-readme-template):
+  A detailed template to bootstrap your README file quickly.
