@@ -439,13 +439,10 @@ Please read the [Code of Conduct](https://github.com/DuckyMomo20012/air-tracking
 
 ## :grey_question: FAQ
 
-- Question 1
+- Is this project still maintained?
 
-  - Answer 1
-
-- Question 2
-
-  - Answer 2
+  - Yes, but we will only update UI, docs, or dependencies. New features won't
+    be added frequently.
 
 <!-- License -->
 
