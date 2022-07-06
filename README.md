@@ -66,6 +66,7 @@
   - [Deploy flow](#deploy-flow)
   - [Value range](#value-range)
   - [MQTT JSON Schema](#mqtt-json-schema)
+  - [Connect IFTTT](#connect-ifttt)
 - [Roadmap](#compass-roadmap)
 - [Contributing](#wave-contributing)
   - [Code of Conduct](#scroll-code-of-conduct)
@@ -309,8 +310,8 @@ To deploy this project on Heroku
 > run. So you can push this `.node-red` folder to your repo to save your work,
 > instead of importing file `flow.json` manually.
 
-  <details>
-  <summary>Customizing Node-RED user directory</summary>
+<details>
+<summary>Customizing Node-RED user directory</summary>
 
 ```javascript
 // bin/www
@@ -320,7 +321,7 @@ userDir: './.node-red-store', // relative to root folder, default $HOME/.node-re
 };
 ```
 
-  </details>
+</details>
 
 ### Value range:
 
@@ -398,6 +399,26 @@ Your MQTT broker service should send data with this schema:
 ```
 
 </details>
+
+### Connect IFTTT
+
+Follow [this tutorial](https://morioh.com/p/aa88d6059a8a) to create IFTTT applet and testing.
+
+<details>
+<summary>Webhook service config</summary>
+
+![webhook config](https://user-images.githubusercontent.com/64480713/177544844-4d8cc0e9-ed5e-4993-90c4-c0b0f293d675.png)
+
+</details>
+
+<details>
+<summary>Notification service config</summary>
+
+![notification config](https://user-images.githubusercontent.com/64480713/177545025-4dd75e01-82d4-426a-88d4-8f4bd12869c6.png)
+
+</details>
+
+> NOTE: `Value1` is required.
 
 <!-- Roadmap -->
 
