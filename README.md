@@ -56,7 +56,6 @@
   - [Environment Variables](#key-environment-variables)
 - [Getting Started](#toolbox-getting-started)
   - [Prerequisites](#bangbang-prerequisites)
-  - [Installation](#gear-installation)
   - [Run Locally](#running-run-locally)
   - [Deployment](#triangular_flag_on_post-deployment)
 - [Usage](#eyes-usage)
@@ -124,7 +123,8 @@
 
 ### :key: Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to add the following environment variables to
+your .env file.
 
 `THINGSPEAK_CHANNEL_ID`: ThingSpeak channel ID to read data from.
 
@@ -157,6 +157,9 @@ Read more about customizing users and other ways to generate passwords:
 
 > NOTE: You change tweak Node-RED settings in file `bin/www`.
 
+You can also checkout file `.env.example` to see all required environment
+variables.
+
 <!-- Getting Started -->
 
 ## :toolbox: Getting Started
@@ -167,49 +170,35 @@ Read more about customizing users and other ways to generate passwords:
 
 - A **MQTT** broker service.
 
-- This project uses Yarn as package manager
+- This project uses Yarn as package manager:
 
   ```bash
   npm install --global yarn
   ```
 
-<!-- Installation -->
-
-### :gear: Installation
-
-Install air-tracking with npm
-
-```bash
-yarn install air-tracking
-cd air-tracking
-```
-
 <!-- Run Locally -->
 
 ### :running: Run Locally
 
-Clone the project
+Clone the project:
 
 ```bash
 git clone https://github.com/DuckyMomo20012/air-tracking.git
 ```
 
-Go to the project directory
+Go to the project directory:
 
 ```bash
 cd air-tracking
 ```
 
-Install dependencies
+Install dependencies:
 
 ```bash
-yarn install
+yarn
 ```
 
-> If you have error: "node" is incompatible... Then add flag:
-> `--ignore-engines`. E.g: `yarn add --ignore-engines PACKAGE_NAME`.
-
-Start the server
+Start the server:
 
 ```bash
 yarn start
@@ -223,11 +212,17 @@ Run with `nodemon`:
 yarn test
 ```
 
+---
+
+Access server:
+
+The server will run on: http://127.0.0.1:3000/red/
+
 <!-- Deployment -->
 
 ### :triangular_flag_on_post: Deployment
 
-To deploy this project on Heroku
+To deploy this project on Heroku:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -237,7 +232,7 @@ To deploy this project on Heroku
 
 ### Access Node-RED editor
 
-- Go to `http://127.0.0.1:1880/red/` to view the Node-RED editor.
+- Go to `http://127.0.0.1:3000/red/` to view the Node-RED editor.
 
   <details>
   <summary>Customizing Node-RED editor route</summary>
@@ -254,7 +249,7 @@ To deploy this project on Heroku
 
 > NOTE: Remember to deploy flow before accessing these routes.
 
-- Go to `http://127.0.0.1:1880/api/ui/` to view web UI (from
+- Go to `http://127.0.0.1:3000/api/ui/` to view web UI (from
   node-red-dashboard node).
 
   <details>
@@ -270,7 +265,7 @@ To deploy this project on Heroku
 
   </details>
 
-- Go to `http://127.0.0.1:1880/api/worldmap/` to view world map (from
+- Go to `http://127.0.0.1:3000/api/worldmap/` to view world map (from
   node-red-contrib-web-worldmap node).
 
 ### Import flow
@@ -454,7 +449,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ### :scroll: Code of Conduct
 
-Please read the [Code of Conduct](https://github.com/DuckyMomo20012/air-tracking/blob/main/CODE_OF_CONDUCT.md)
+Please read the [Code of Conduct](https://github.com/DuckyMomo20012/air-tracking/blob/main/CODE_OF_CONDUCT.md).
 
 <!-- FAQ -->
 
@@ -482,7 +477,9 @@ Please read the [Code of Conduct](https://github.com/DuckyMomo20012/air-tracking
 
 ## :warning: License
 
-Distributed under MIT license. See [LICENSE](https://github.com/DuckyMomo20012/air-tracking/blob/main/LICENSE) for more information.
+Distributed under MIT license. See
+[LICENSE](https://github.com/DuckyMomo20012/air-tracking/blob/main/LICENSE) for
+more information.
 
 <!-- Contact -->
 
@@ -490,13 +487,13 @@ Distributed under MIT license. See [LICENSE](https://github.com/DuckyMomo20012/a
 
 Duong Vinh - [@duckymomo20012](https://twitter.com/duckymomo20012) - tienvinh.duong4@gmail.com
 
-Project Link: [https://github.com/DuckyMomo20012/air-tracking](https://github.com/DuckyMomo20012/air-tracking)
+Project Link: [https://github.com/DuckyMomo20012/air-tracking](https://github.com/DuckyMomo20012/air-tracking).
 
 <!-- Acknowledgments -->
 
 ## :gem: Acknowledgements
 
-Here are useful resources and libraries that we have used in our projects.
+Here are useful resources and libraries that we have used in our projects:
 
 - [Node-RED](https://nodered.org/): A powerful tool to build IoT applications.
 - [Awesome Readme Template](https://github.com/Louis3797/awesome-readme-template):
