@@ -59,15 +59,15 @@
   - [Run Locally](#running-run-locally)
   - [Deployment](#triangular_flag_on_post-deployment)
 - [Usage](#eyes-usage)
-  - [Access Node-RED editor](#access-node-red-editor)
-  - [Import flow](#import-flow)
-  - [Node-RED dashboard first setups](#node-red-dashboard-first-setups)
-  - [Deploy flow](#deploy-flow)
-  - [Value range](#value-range)
-  - [MQTT JSON Schema](#mqtt-json-schema)
-  - [Connect IFTTT](#connect-ifttt)
+  - [Access Node-RED editor](#fast_forward-access-node-red-editor)
+  - [Import flow](#inbox_tray-import-flow)
+  - [Node-RED dashboard first setups](#one-node-red-dashboard-first-setups)
+  - [Deploy flow](#rocket-deploy-flow)
+  - [Value range](#1234-value-range)
+  - [MQTT JSON Schema](#memo-mqtt-json-schema)
+  - [Connect IFTTT](#electric_plug-connect-ifttt)
 - [Roadmap](#compass-roadmap)
-- [Contributing](#contributors-✨)
+- [Contributing](#sparkles-contributors)
   - [Code of Conduct](#scroll-code-of-conduct)
 - [FAQ](#grey_question-faq)
 - [License](#warning-license)
@@ -149,13 +149,13 @@ NODERED_USERNAME=admin
 NODERED_PASSWORD=password
 ```
 
-> `NODERED_USERNAME` and `NODERED_PASSWORD` is **used for default user**
-> (admin). You can add another users in file `bin/www`.
+> **Note**: `NODERED_USERNAME` and `NODERED_PASSWORD` is **used for default
+> user** (admin). You can add another users in file `bin/www`.
 
 Read more about customizing users and other ways to generate passwords:
 [Securing Node-RED](https://nodered.org/docs/user-guide/runtime/securing-node-red#editor--admin-api-security)
 
-> NOTE: You change tweak Node-RED settings in file `bin/www`.
+> **Note**: You change tweak Node-RED settings in file `bin/www`.
 
 You can also checkout file `.env.example` to see all required environment
 variables.
@@ -170,7 +170,7 @@ variables.
 
 - A **MQTT** broker service.
 
-- This project uses Yarn as package manager:
+- This project uses [Yarn](https://yarnpkg.com/) as package manager:
 
   ```bash
   npm install --global yarn
@@ -204,7 +204,7 @@ Start the server:
 yarn start
 ```
 
-OR
+OR:
 
 Run with `nodemon`:
 
@@ -230,7 +230,7 @@ To deploy this project on Heroku:
 
 ## :eyes: Usage
 
-### Access Node-RED editor
+### :fast_forward: Access Node-RED editor
 
 - Go to `http://127.0.0.1:3000/red/` to view the Node-RED editor.
 
@@ -247,7 +247,7 @@ To deploy this project on Heroku:
 
   </details>
 
-> NOTE: Remember to deploy flow before accessing these routes.
+> **Note**: Remember to deploy flow before accessing these routes below.
 
 - Go to `http://127.0.0.1:3000/api/ui/` to view web UI (from
   node-red-dashboard node).
@@ -268,42 +268,39 @@ To deploy this project on Heroku:
 - Go to `http://127.0.0.1:3000/api/worldmap/` to view world map (from
   node-red-contrib-web-worldmap node).
 
-### Import flow
+### :inbox_tray: Import flow
 
 - Go to the hamburger button on the top right of the editor.
 - Click the `Import` button.
 - Then import file `flows.json` from folder `data`.
 
-### Node-RED dashboard first setups
+### :one: Node-RED dashboard first setups
 
 - In Node-RED editor go to each MQTT node to edit server URL, topics...
-- Change the web title in the`dashboard/site` tab (on the right-side panel).
+- Change the web title in the `dashboard/site` tab (on the right-side panel).
 - Change the web main color theme in the `dashboard/theme` tab.
 - If you don't have MQTT, you can connect node `MQTT emulator` (in Node-RED
-  editor) to inject sample data.
+  editor) to inject sample data:
 
   ![MQTT emulator node](https://user-images.githubusercontent.com/64480713/170508485-fbb7128b-c0d4-4ebf-97a5-1fbfb8151d4e.png)
 
   OR:
 
   You can use [MQTT explorer](http://mqtt-explorer.com/) to inject a sample MQTT
-  data.
+  data:
 
   ![MQTT explorer example](https://user-images.githubusercontent.com/64480713/170509148-d8d65312-feff-488d-a076-c61dd0fb3b0b.png)
 
   _Example image from MQTT explorer website_
 
-  > NOTE: You can see sample MQTT data in folder `data`. File
-  > `dangerous-data.json` and `normal-data.json`.
-
-### Deploy flow:
+### :rocket: Deploy flow:
 
 - Click the `Deploy` button in the Node-RED editor to deploy flow.
 - After deploying, your flow will be saved in the `.node-red` folder.
 
-> File `flow.json` in the `.node-red` folder will be loaded for the next server
-> run. So you can push this `.node-red` folder to your repo to save your work,
-> instead of importing the file `flow.json` manually.
+> **Note**: File `flow.json` in the `.node-red` folder will be loaded for the
+> next server run. So you can push this `.node-red` folder to your repo to save
+> your work, instead of importing the file `flow.json` manually.
 
 <details>
 <summary>Customizing Node-RED user directory</summary>
@@ -318,27 +315,27 @@ userDir: './.node-red-store', // relative to root folder, default $HOME/.node-re
 
 </details>
 
-### Value range:
+### :1234: Value range:
 
 - **Humidity(%)**:
-  - 0 - 20: Uncomfortably dry.
-  - 20 - 60: Normal.
-  - 60 - 100: Uncomfortably wet.
+  - `0 - 20`: Uncomfortably dry.
+  - `20 - 60`: Normal.
+  - `60 - 100`: Uncomfortably wet.
 - **Temperature(℃)**:
-  - 0 - 20: Temperature is too cold.
-  - 20 - 35: Normal.
-  - 35 - 50: Temperature is too hot.
+  - `0 - 20`: Temperature is too cold.
+  - `20 - 35`: Normal.
+  - `35 - 50`: Temperature is too hot.
 - **Dust density (mg/m3)**:
-  - 0 - 3: Normal
-  - 3 - 10: Normal
-  - 10 - 50: Dust density is too high.
+  - `0 - 3`: Normal
+  - `3 - 10`: Normal
+  - `10 - 50`: Dust density is too high.
 - **Air quality**:
 
-  - 0 - 190: Normal.
-  - 190 - 300: Normal.
-  - 300 - 500: Air quality is too poor.
+  - `0 - 190`: Normal.
+  - `190 - 300`: Normal.
+  - `300 - 500`: Air quality is too poor.
 
-### MQTT JSON Schema:
+### :memo: MQTT JSON Schema:
 
 Your MQTT broker service should send data with this schema:
 
@@ -395,25 +392,28 @@ Your MQTT broker service should send data with this schema:
 
 </details>
 
-### Connect IFTTT
+> **Note**: You can see sample MQTT data in folder `data`. File
+> `dangerous-data.json` and `normal-data.json`.
+
+### :electric_plug: Connect IFTTT
 
 Follow [this tutorial](https://morioh.com/p/aa88d6059a8a) to create an IFTTT applet and test.
 
 <details>
-<summary>Webhook service config</summary>
+<summary>Webhook service configuration</summary>
 
-![webhook config](https://user-images.githubusercontent.com/64480713/177544844-4d8cc0e9-ed5e-4993-90c4-c0b0f293d675.png)
+![webhook configuration](https://user-images.githubusercontent.com/64480713/177544844-4d8cc0e9-ed5e-4993-90c4-c0b0f293d675.png)
 
 </details>
 
 <details>
-<summary>Notification service config</summary>
+<summary>Notification service configuration</summary>
 
-![notification config](https://user-images.githubusercontent.com/64480713/177545025-4dd75e01-82d4-426a-88d4-8f4bd12869c6.png)
+![notification configuration](https://user-images.githubusercontent.com/64480713/177545025-4dd75e01-82d4-426a-88d4-8f4bd12869c6.png)
 
 </details>
 
-> NOTE: `Value1` is required.
+> **Note**: `Value1` is required.
 
 <!-- Roadmap -->
 
@@ -423,7 +423,7 @@ Follow [this tutorial](https://morioh.com/p/aa88d6059a8a) to create an IFTTT app
 
 <!-- Contributing -->
 
-## Contributors ✨
+## :sparkles: Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
