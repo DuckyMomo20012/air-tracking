@@ -124,29 +124,37 @@
 ### :key: Environment Variables
 
 To run this project, you will need to add the following environment variables to
-your .env file.
+your `.env` file:
 
-`THINGSPEAK_CHANNEL_ID`: ThingSpeak channel ID to read data from.
+- **Node-RED configs:**
 
-`THINGSPEAK_WRITE_KEY`: ThingSpeak write key to write data to.
+  `NODERED_USERNAME`: Username to log in to Node-RED editor.
 
-`THINGSPEAK_READ_KEY`: ThingSpeak read key to read data from.
+  `NODERED_PASSWORD`: Password to login to Node-RED editor.
 
-`IFTTT_URL`: IFFTT URL to send a notification to.
+- **ThingSpeak configs:**
 
-`NODERED_USERNAME`: Username to log in to Node-RED editor.
+  `THINGSPEAK_CHANNEL_ID`: ThingSpeak channel ID to read data from.
 
-`NODERED_PASSWORD`: Password to login to Node-RED editor.
+  `THINGSPEAK_WRITE_KEY`: ThingSpeak write key to write data to.
+
+  `THINGSPEAK_READ_KEY`: ThingSpeak read key to read data from.
+
+- **IFTTT configs:**
+
+  `IFTTT_URL`: IFFTT URL to send a notification to.
 
 E.g:
 
 ```
+NODERED_USERNAME=admin
+NODERED_PASSWORD=password
+
 THINGSPEAK_CHANNEL_ID=1461192
 THINGSPEAK_WRITE_KEY=RRFDXXCAA6DSDP84
 THINGSPEAK_READ_KEY=V348J6XADWL2NUB60
+
 IFTTT_URL=https://maker.ifttt.com/trigger/{event}/with/key/crMzTDLXl...
-NODERED_USERNAME=admin
-NODERED_PASSWORD=password
 ```
 
 > **Note**: `NODERED_USERNAME` and `NODERED_PASSWORD` is **used for default
