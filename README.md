@@ -147,6 +147,7 @@ your `.env` file:
 E.g:
 
 ```
+# .env
 NODERED_USERNAME=admin
 NODERED_PASSWORD=password
 
@@ -157,15 +158,15 @@ THINGSPEAK_READ_KEY=V348J6XADWL2NUB60
 IFTTT_URL=https://maker.ifttt.com/trigger/{event}/with/key/crMzTDLXl...
 ```
 
-> **Note**: `NODERED_USERNAME` and `NODERED_PASSWORD` is **used for default
-> user** (admin). You can add another users in file `bin/www`.
+> **Note**: `NODERED_USERNAME` and `NODERED_PASSWORD` is **used for admin
+> user**. You can add other users in the file `bin/www`.
 
 Read more about customizing users and other ways to generate passwords:
-[Securing Node-RED](https://nodered.org/docs/user-guide/runtime/securing-node-red#editor--admin-api-security)
+[Securing Node-RED](https://nodered.org/docs/user-guide/runtime/securing-node-red#editor--admin-api-security).
 
 > **Note**: You change tweak Node-RED settings in file `bin/www`.
 
-You can also checkout file `.env.example` to see all required environment
+You can also check out the file `.env.example` to see all required environment
 variables.
 
 <!-- Getting Started -->
@@ -224,7 +225,7 @@ yarn test
 
 Access server:
 
-The server will run on: http://127.0.0.1:3000/red/
+The server will run on: http://localhost:3000/red/
 
 <!-- Deployment -->
 
@@ -238,49 +239,101 @@ To deploy this project on Heroku:
 
 ## :eyes: Usage
 
+<!-- Customize Node-RED -->
+
+### :gear: Customize Node-RED
+
+- You can custom your Node-RED configuration in file `bin/www`.
+
+  - `httpAdminRoot`: the root URL for the editor UI. If set to false, all admin
+    endpoints are disabled. This includes both API endpoints and the editor UI. To
+    disable just the editor UI, see the disableEditor property below. Default:
+    `/`.
+
+  - `httpNodeRoot`: the root URL for nodes that provide HTTP endpoints. If set to
+    false, all node-based HTTP endpoints are disabled. Default: `/`.
+
+  - `userDir`: the directory to store all user data, such as flow and credential
+    files and all library data. Default: `$HOME/.node-red`.
+
+  - `flowFile`: the file used to store the flows. Default:
+    `flows_<hostname>.json`.
+
+  - `functionGlobalContext`: Function Nodes - a collection of objects to attach
+    to the global function context. For example,
+
+    ```javascript
+    functionGlobalContext: {
+      osModule: require('os');
+    }
+    ```
+
+    can be accessed in a function node as:
+
+    ```javascript
+    var myos = global.get('osModule');
+    ```
+
+  - `adminAuth`: enables user-level security in the editor and admin API. See
+    [Securing
+    Node-RED](https://nodered.org/docs/user-guide/runtime/securing-node-red) for
+    more information.
+
+- This project configure these settings:
+
+  ```javascript
+  // bin/www
+  const settings = {
+    httpAdminRoot: '/red',
+    httpNodeRoot: '/api',
+    userDir: './.node-red/',
+    flowFile: 'flows.json',
+    functionGlobalContext: {
+      THINGSPEAK_CHANNEL_ID: process.env.THINGSPEAK_CHANNEL_ID,
+      THINGSPEAK_WRITE_KEY: process.env.THINGSPEAK_WRITE_KEY,
+      THINGSPEAK_READ_KEY: process.env.THINGSPEAK_READ_KEY,
+      IFTTT_URL: process.env.IFTTT_URL,
+    }, // enables global context
+    adminAuth: {
+      type: 'credentials',
+      users: [
+        // This is admin user credentials
+        {
+          username: process.env.NODERED_USERNAME,
+          password: bcryptjs.hashSync(process.env.NODERED_PASSWORD, 8),
+          permissions: '*',
+        },
+      ],
+    },
+  };
+  ```
+
+> **Note**: Read more about Node-RED configuration: [Runtime
+> Configuration](https://nodered.org/docs/user-guide/runtime/configuration).
+
+<!-- Access Node-RED editor -->
+
 ### :fast_forward: Access Node-RED editor
 
-- Go to `http://127.0.0.1:3000/red/` to view the Node-RED editor.
+- Go to `http://localhost:3000/red/` to view the Node-RED editor.
 
-  <details>
-  <summary>Customizing Node-RED editor route</summary>
-
-  ```javascript
-  // bin/www
-  const settings = {
-  httpAdminRoot: '/editor',
-  ...
-  };
-  ```
-
-  </details>
-
-> **Note**: Remember to deploy flow before accessing these routes below.
-
-- Go to `http://127.0.0.1:3000/api/ui/` to view web UI (from
+- Go to `http://localhost:3000/api/ui/` to view web UI (from
   node-red-dashboard node).
 
-  <details>
-  <summary>Customizing Node-RED node route</summary>
-
-  ```javascript
-  // bin/www
-  const settings = {
-  httpNodeRoot: '/',
-  ...
-  };
-  ```
-
-  </details>
-
-- Go to `http://127.0.0.1:3000/api/worldmap/` to view world map (from
+- Go to `http://localhost:3000/api/worldmap/` to view world map (from
   node-red-contrib-web-worldmap node).
+
+> **Note**: Remember to deploy your flow before accessing node routes.
+
+<!-- Import flow -->
 
 ### :inbox_tray: Import flow
 
 - Go to the hamburger button on the top right of the editor.
 - Click the `Import` button.
 - Then import file `flows.json` from folder `data`.
+
+<!-- Node-RED dashboard first setups -->
 
 ### :one: Node-RED dashboard first setups
 
@@ -301,7 +354,9 @@ To deploy this project on Heroku:
 
   _Example image from MQTT explorer website_
 
-### :rocket: Deploy flow:
+<!-- Deploy flow -->
+
+### :rocket: Deploy flow
 
 - Click the `Deploy` button in the Node-RED editor to deploy flow.
 - After deploying, your flow will be saved in the `.node-red` folder.
@@ -310,20 +365,9 @@ To deploy this project on Heroku:
 > next server run. So you can push this `.node-red` folder to your repo to save
 > your work, instead of importing the file `flow.json` manually.
 
-<details>
-<summary>Customizing Node-RED user directory</summary>
+<!-- Value range -->
 
-```javascript
-// bin/www
-const settings = {
-userDir: './.node-red-store', // relative to root folder, default $HOME/.node-red
-...
-};
-```
-
-</details>
-
-### :1234: Value range:
+### :1234: Value range
 
 - **Humidity(%)**:
   - `0 - 20`: Uncomfortably dry.
@@ -342,6 +386,8 @@ userDir: './.node-red-store', // relative to root folder, default $HOME/.node-re
   - `0 - 190`: Normal.
   - `190 - 300`: Normal.
   - `300 - 500`: Air quality is too poor.
+
+<!-- MQTT JSON Schema -->
 
 ### :memo: MQTT JSON Schema:
 
@@ -402,6 +448,8 @@ Your MQTT broker service should send data with this schema:
 
 > **Note**: You can see sample MQTT data in folder `data`. File
 > `dangerous-data.json` and `normal-data.json`.
+
+<!-- Connect IFTTT -->
 
 ### :electric_plug: Connect IFTTT
 
@@ -493,7 +541,8 @@ more information.
 
 ## :handshake: Contact
 
-Duong Vinh - [@duckymomo20012](https://twitter.com/duckymomo20012) - tienvinh.duong4@gmail.com
+Duong Vinh - [@duckymomo20012](https://twitter.com/duckymomo20012) -
+tienvinh.duong4@gmail.com
 
 Project Link: [https://github.com/DuckyMomo20012/air-tracking](https://github.com/DuckyMomo20012/air-tracking).
 
