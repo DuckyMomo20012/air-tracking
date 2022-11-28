@@ -1,7 +1,5 @@
 node_modules
 
-.node-red
-
 .env*
 !.env.project
 !.env.vault
