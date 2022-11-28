@@ -29,7 +29,7 @@ const server = http.createServer(app);
 // Create the settings object - see default settings.js file for other options
 const settings = {
   httpAdminRoot: '/red',
-  httpNodeRoot: '/api',
+  httpNodeRoot: '/air-tracking',
   userDir: './.node-red/',
   flowFile: 'flows.json',
   functionGlobalContext: {

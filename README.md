@@ -285,7 +285,7 @@ To deploy this project on Heroku:
   // bin/www
   const settings = {
     httpAdminRoot: '/red',
-    httpNodeRoot: '/api',
+    httpNodeRoot: '/air-tracking',
     userDir: './.node-red/',
     flowFile: 'flows.json',
     functionGlobalContext: {
@@ -317,10 +317,10 @@ To deploy this project on Heroku:
 
 - Go to `http://localhost:3000/red/` to view the Node-RED editor.
 
-- Go to `http://localhost:3000/api/ui/` to view web UI (from
+- Go to `http://localhost:3000/air-tracking/ui/` to view web UI (from
   node-red-dashboard node).
 
-- Go to `http://localhost:3000/api/worldmap/` to view world map (from
+- Go to `http://localhost:3000/air-tracking/worldmap/` to view world map (from
   node-red-contrib-web-worldmap node).
 
 > **Note**: Remember to deploy your flow before accessing node routes.
