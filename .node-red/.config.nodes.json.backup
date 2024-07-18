@@ -429,7 +429,7 @@
     },
     "node-red-contrib-web-worldmap": {
         "name": "node-red-contrib-web-worldmap",
-        "version": "4.8.1",
+        "version": "2.29.0",
         "local": false,
         "user": false,
         "nodes": {
@@ -452,7 +452,7 @@
     },
     "node-red-dashboard": {
         "name": "node-red-dashboard",
-        "version": "3.6.5",
+        "version": "3.2.0",
         "local": false,
         "user": false,
         "nodes": {

@@ -102,6 +102,7 @@
   <summary>Server</summary>
   <ul>
     <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://fastify.dev/">fastify</a></li>
   </ul>
 </details>
 
@@ -179,10 +180,10 @@ variables.
 
 - A **MQTT** broker service.
 
-- This project uses [Yarn](https://yarnpkg.com/) as package manager:
+- This project uses [pnpm](https://pnpm.io/) as package manager:
 
   ```bash
-  npm install --global yarn
+  npm install --global pnpm
   ```
 
 <!-- Run Locally -->

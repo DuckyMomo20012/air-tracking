@@ -23,13 +23,35 @@
     "requireConfigFile": false,
     "sourceType": "module"
   },
-  "plugins": ["react", "import"],
+  "plugins": ["react", "import", "prettier"],
   "rules": {
-    "eqeqeq": "warn",
-    "import/extensions": "off",
-    "import/no-unresolved": "off",
+    "import/extensions": [
+      "warn",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "warn",
+      {
+        "devDependencies": false
+      }
+    ],
+    "import/no-unresolved": "warn",
+    "import/order": [
+      "warn",
+      {
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
     "import/prefer-default-export": "off",
-    "no-var": "error",
+    "no-param-reassign": "off",
     "prefer-destructuring": [
       "warn",
       {
@@ -37,7 +59,6 @@
         "object": true
       }
     ],
-    "no-param-reassign": ["off"],
     "prettier/prettier": [
       "error",
       {
@@ -45,15 +66,13 @@
       }
     ],
     "react/jsx-sort-props": "warn",
-    "react/prop-types": [
-      "off",
+    "sort-imports": [
+      "warn",
       {
-        "ignore": ["children"]
+        "ignoreDeclarationSort": true
       }
     ],
-    "require-await": "warn",
-    "spaced-comment": ["warn", "always"],
-    "strict": ["error", "global"]
+    "spaced-comment": ["warn", "always", { "markers": ["/"] }]
   },
   "settings": {
     "react": {
