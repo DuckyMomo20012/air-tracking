@@ -2,6 +2,7 @@
   "name": "air-tracking",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "node ./bin/www",
     "test": "nodemon ./bin/www",
@@ -13,10 +14,11 @@
     "debug": "4.3.4",
     "dotenv": "16.0.3",
     "express": "4.18.1",
+    "fastify": "4.28.1",
     "http-errors": "2.0.0",
     "jade": "1.11.0",
     "morgan": "1.10.0",
-    "node-red": "3.0.2",
+    "node-red": "4.0.2",
     "node-red-contrib-web-worldmap": "2.29.0",
     "node-red-dashboard": "3.2.0"
   },
